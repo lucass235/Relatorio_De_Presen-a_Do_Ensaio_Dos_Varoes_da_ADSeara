@@ -39,3 +39,9 @@ python report.py
 - Para mais informações, acesse o seguinte link: https://gspread.readthedocs.io/en/latest/oauth2.html
 
 - Por enquanto, somente o código esta fazendo a leitura do google sheets, mas em breve, será criado uma interface para facilitar a visualização dos dados.
+
+## 6. Resultado
+
+- imagem do gráfico
+
+![Gráfico](./img/reports/relatorio_img.png)
