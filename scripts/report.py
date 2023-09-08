@@ -23,8 +23,8 @@ SAMPLE_RANGE_NAME = 'Folha2!A2:C1000'
 creds = None
 df = None
     
-if os.path.exists('../env/token.json'):
-    creds = Credentials.from_authorized_user_file('../env/token.json', SCOPES)
+if os.path.exists('env/token.json'):
+    creds = Credentials.from_authorized_user_file('env/token.json', SCOPES)
 else:
     print('Não foi possível encontrar o arquivo token.json')
     
@@ -33,10 +33,10 @@ if not creds or not creds.valid:
         creds.refresh(Request())
     else:
         flow = InstalledAppFlow.from_client_secrets_file(
-            '../env/credentials.json', SCOPES)
+            'env/credentials.json', SCOPES)
         creds = flow.run_local_server(port=0)
     # Save the credentials for the next run
-    with open('../env/token.json', 'w') as token:
+    with open('env/token.json', 'w') as token:
         token.write(creds.to_json())
         
 try:
@@ -50,7 +50,7 @@ try:
     df = pd.DataFrame(values, columns=['Nome', 'Presenca', 'Data'])
     
     # fazer download da planilha
-    with open('../data/presenca_ensaio_varoes.csv', 'w') as f:
+    with open('data/presenca_ensaio_varoes.csv', 'w') as f:
         f.write(df.to_csv(index=False))
           
     print('Planilha lida com sucesso!')
